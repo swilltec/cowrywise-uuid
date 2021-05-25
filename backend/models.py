@@ -15,5 +15,3 @@ class Keys(models.Model):
     class Meta:
         ordering = ["-key"]
    
-
-Keys_Pydantic = pydantic_model_creator(Keys, name="Keys", exclude = ['id'])

@@ -1,16 +1,16 @@
 import datetime
 import uuid
-from typing import List
+from typing import List, Dict
 
 from fastapi import Depends, APIRouter
-from models import Keys, Keys_Pydantic
+from models import Keys
 
 
 
 router = APIRouter()
 
 
-@router.get("/", response_model=dict)
+@router.get("/")
 async def home():
     await Keys.create(key=datetime.datetime.now(), uuid= uuid.uuid4().hex)
     keys = await Keys.all()
